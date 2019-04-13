@@ -28,7 +28,8 @@
 
 - (IBAction)previous:(id)sender {
     if(_index==0){
-        _index=0;
+        _index=[_myArray count]-1;
+        _Name.text=[_myArray objectAtIndex:_index];
     }
     else{
     _index--;
@@ -39,11 +40,16 @@
 }
 
 - (IBAction)Next:(id)sender {
-    if(_index != [_myArray count]-1){
     _index++;
+    if(_index < [_myArray count]){
+        _Name.text=[_myArray objectAtIndex:_index];
+        
+    }else{
+        _index=0;
         _Name.text=[_myArray objectAtIndex:_index];
         
     }
+    
     
 }
 @end
